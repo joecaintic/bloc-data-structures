@@ -1,4 +1,4 @@
-require 'my_stack'
+require '../src/my_stack'
 
 class StackQueue
     
@@ -8,31 +8,15 @@ class StackQueue
     end
     
     def enqueue(element)
-        if sq_1.stack_array.length <= sq_2.stack_array.length
-            sq_1.stack_array.push(element)
-        else
-            sq_2.stack_array.push(element)
-        end
+        @sq_1.push(element) || @sq_2.push(element)
     end
     
     def dequeue
-        if sq_1.stack_array.length <= sq_2.stack_array.length
-            temp = sq_1.stack_array[0]
-            sq_1.stack_array - [temp] = sq_1.stack_array
-            return temp
-        else
-            temp = sq_2.stack_array[0]
-            sq_2.stack_array - [temp] = sq_2.stack_array
-            return temp
-        end
+        @sq_1.dequeue || @sq_2.dequeue
     end
     
     def empty?
-        if sq_1.stack_array = [] && sq_2.stack_array = []
-            return true
-        else
-            return false
-        end
+        @sq_1.empty? && @sq_2.empty?
     end
 
 end

@@ -5,22 +5,23 @@ class MyStack
     end
     
     def push(element)
-        stack_array.length + 1 == stack_array.length
-        stack_array[stack_array.length - 1] = element
+        @stack_array[@stack_array.length] = element
     end
     
     def pop
-        temp = stack_array[stack_array.length - 1]
-        stack_array.length - 1 == stack_array.length
+        temp = @stack_array[@stack_array.length - 1]
+        @stack_array = @stack_array - [@stack_array[@stack_array.length - 1]]
+        return temp
+    end
+    
+    def dequeue
+        temp = @stack_array[0]
+        @stack_array = @stack_array - [@stack_array[0]]
         return temp
     end
     
     def empty?
-        if stack_array = []
-            return true
-        else
-            return false
-        end
+        @stack_array === []
     end
-
+    
 end

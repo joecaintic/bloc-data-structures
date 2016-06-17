@@ -5,22 +5,23 @@ class MyQueue
     end
 
     def enqueue(element)
-        queue_array.length + 1 = queue_array.length
-        queue_array[queue_array.length - 1] = element
+        @queue_array[@queue_array.length] = element
     end
 
     def dequeue
-        temp = queue_array[0]
-        queue_array - [temp] = queue_array
+        temp = @queue_array[0]
+        @queue_array = @queue_array - [@queue_array[0]]
+        return temp
+    end
+    
+    def pop
+        temp = @queue_array[@queue_array.length - 1]
+        @queue_array = @queue_array - [@queue_array[@queue_array.length - 1]]
         return temp
     end
 
     def empty?
-        if queue_array = []
-            return true
-        else
-            return false
-        end
+        @queue_array === []
     end
 
 end
