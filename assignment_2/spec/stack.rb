@@ -24,6 +24,18 @@ RSpec.shared_examples 'stack' do
     expect(stack.empty?).to(be(true))
   end
 
+  it 'should only pop one item off of the stack' do
+    stack = described_class.new
+
+    stack.push(:item1)
+    stack.push(:item1)
+    stack.push(:item1)
+
+    stack.pop
+
+    expect(stack.empty?).to(be(false))
+  end
+
   it 'should maintain LIFO priority' do
     stack = described_class.new
 
@@ -32,5 +44,7 @@ RSpec.shared_examples 'stack' do
 
     expect(stack.pop).to(be(:item2))
     expect(stack.pop).to(be(:item1))
+
+    expect(stack.empty?).to(be(true))
   end
 end

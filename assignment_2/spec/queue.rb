@@ -22,6 +22,18 @@ RSpec.shared_examples 'queue' do
     expect(queue.empty?).to(be(true))
   end
 
+  it 'should only dequeue one item from the queue' do
+    queue = described_class.new
+
+    queue.enqueue(:item1)
+    queue.enqueue(:item1)
+    queue.enqueue(:item1)
+
+    queue.dequeue
+
+    expect(queue.empty?).to(be(false))
+  end
+
   it 'should maintain FIFO priority' do
     queue = described_class.new
 
