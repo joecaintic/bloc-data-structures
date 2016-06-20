@@ -21,21 +21,3 @@ class QueueStack
     end
     
 end
-
-=begin
-    def pop
-        if @qs_1.@queue_array.length >= @qs_2.@queue_array.length
-            temp = @qs_1.@queue_array[@queue_array.length - 1]
-            @qs_1 = @qs_1 - [temp]
-            return temp
-        else
-            temp = @qs_2.last
-            @qs_2 = @qs_2 - [temp]
-            return temp
-        end
-    end
-
-    def enqueue(element)
-        @queue_array[@queue_array.length] = element
-    end
-=end

@@ -10,13 +10,13 @@ class MyStack
     
     def pop
         temp = @stack_array[@stack_array.length - 1]
-        @stack_array = @stack_array - [@stack_array[@stack_array.length - 1]]
+        @stack_array.delete_at(@stack_array.length - 1)
         return temp
     end
     
     def dequeue
         temp = @stack_array[0]
-        @stack_array = @stack_array - [@stack_array[0]]
+        @stack_array.delete_at(0)
         return temp
     end
     

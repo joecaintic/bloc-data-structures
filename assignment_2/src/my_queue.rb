@@ -10,13 +10,13 @@ class MyQueue
 
     def dequeue
         temp = @queue_array[0]
-        @queue_array = @queue_array - [@queue_array[0]]
+        @queue_array.delete_at(0)
         return temp
     end
     
     def pop
         temp = @queue_array[@queue_array.length - 1]
-        @queue_array = @queue_array - [@queue_array[@queue_array.length - 1]]
+        @queue_array.delete_at(@queue_array.length - 1)
         return temp
     end
 
